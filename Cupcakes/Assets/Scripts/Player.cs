@@ -20,7 +20,10 @@ Rigidbody2D rigid;
 
     void Update()
     {
-    
+     //Salto
+    if(Input.GetButtonDown("Jump") && isGrounded == true){
+    rigid.AddForce(new Vector2 (0, jumpForce), ForceMode2D.Impulse);
+     }
     }
 
     //El movimiento se pone aca para que solo cuando se mande a llamar se use y no cada frame
@@ -45,11 +48,8 @@ Rigidbody2D rigid;
     void Movimiento(){
     //Movimiento 
     var movement = Input.GetAxis("Horizontal");
-    transform.position += new Vector3(movement, 0,0) * Time.deltaTime * movementSpeed;
-    //Salto
-    if(Input.GetButtonDown("Jump") && isGrounded == true){
-    rigid.AddForce(new Vector2 (0, jumpForce), ForceMode2D.Impulse);
-     }
+    transform.position += new Vector3(1f, 0,0) * Time.deltaTime * movementSpeed;
+   
     }
 
 }
